@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DinoSingh Log</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body id="body">
+
+<div class="header">
+    <h1>🚕 DinoSingh Log</h1>
+    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <p>
+    <a href="/">🏠 Home</a> |
+    <a href="/add_trip">➕ Add Trip</a> |
+    <a href="/history">📋 History</a> |
+    <a href="/reports">📊 Reports</a>
+    </p>
+    <p>Taxi Driver Logbook</p>
+</div>
+
+<div class="card">
+    <h2>Welcome Driver</h2>
+    <p>Status: 🟢 Online</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Today's Trips</h3>
+        <h2>{{ total_trips }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Today's Income</h3>
+        <h2>{{ total_income }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Total KM</h3>
+        <h2>{{ total_km }} km</h2>
+    </div>
+
+    <div class="card">
+        <h3>Fuel Expense</h3>
+        <h2>₹{{ total_fuel }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Profit</h3>
+        <h2>₹{{ profit }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Average Fare</h3>
+        <h2>₹{{ average_fare }}</h2>
+    </div>
+    
+    <div class="card">
+        <h3>Highest Fare</h3>
+        <h2>₹{{ highest_fare }}</h2>
+    </div>
+
+</div>
+
+<div class="card">
+    <h2>Recent Trips</h2>
+
+    {% for trip in recent_trips %}
+        <p>
+            📅 {{ trip[1] }} |
+            🚕 {{ trip[2] }} → {{ trip[3] }} |
+            💰 ₹{{ trip[5] }}
+        </p>
+        <hr>
+    {% endfor %}
+
+</div>
+
+<div class="card">
+    <h2>Quick Actions</h2>
+
+<a href="/add_trip">
+    <button>➕ Add Trip</button>
+</a>
+<a href="/history">
+    <button>📋 Trip History</button>
+</a>
+<a href="/reports">
+    <button>📊 Reports</button>
+</a>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📊 Reports</h1>
+    <form method="GET">
+    <input type="date" name="date">
+    <button type="submit">Filter</button>
+</form>
+    
+<a>href="/download_report">
+    <button>📄 Download PDF Report</button>
+</a>
+</div>
+
+<div class="card">
+    <h2>Total Trips : {{ total_trips }}</h2>
+    <h2>Total Income : ₹{{ total_income }}</h2>
+    <h2>Total KM : {{ total_km }} km</h2>
+    <h2>Total Fuel : ₹{{ total_fuel }}</h2>
+    <h2>Profit : ₹{{ profit }}</h2>
+</div>
+
+<div class="card">
+    <h2>📅 Weekly Report</h2>
+
+    <p><strong>Total Trips:</strong> {{ weekly_trips }}</p>
+    <p><strong>Total Income:</strong> ₹{{ weekly_income }}</p>
+    <p><strong>Total Fuel:</strong> ₹{{ weekly_fuel }}</p>
+    <p><strong>Total KM:</strong> {{ weekly_km }} km</p>
+    <p><strong>Profit:</strong> ₹{{ weekly_profit }}</p>
+</div>
+
+<div class="card">
+    <h2>📊 Monthly Report</h2>
+
+    <p><strong>Total Trips:</strong> {{ monthly_trips }}</p>
+    <p><strong>Total Income:</strong> ₹{{ monthly_income }}</p>
+    <p><strong>Total Fuel:</strong> ₹{{ monthly_fuel }}</p>
+    <p><strong>Total KM:</strong> {{ monthly_km }} km</p>
+    <p><strong>Profit:</strong> ₹{{ monthly_profit }}</p>
+</div>
+
+<div class="card">
+    <h2>Recent Trips</h2>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>Date</th>
+            <th>Pickup</th>
+            <th>Drop</th>
+            <th>KM</th>
+            <th>Fare</th>
+        </tr>
+
+        {% for trip in trips %}
+        <tr>
+            <td>{{ trip[1] }}</td>
+            <td>{{ trip[2] }}</td>
+            <td>{{ trip[3] }}</td>
+            <td>{{ trip[4] }}</td>
+            <td>₹{{ trip[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

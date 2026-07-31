@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trip History</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📋 Trip History</h1>
+    <form method="GET">
+    <input type="text" name="search" placeholder="Search Pickup">
+    <button type="submit">🔍 Search</button>
+</form>
+
+<br>
+</div>
+
+<div class="card">
+
+{% for trip in trips %}
+
+<p>
+📅 {{ trip[1] }}
+<br>
+🚕 {{ trip[2] }} → {{ trip[3] }} 
+<br>
+📏 KM: {{ trip[4] }}
+<br>
+💰 Fare: ₹{{ trip[5] }}
+<br>
+⛽ Fuel: ₹{{ trip[6] }}
+<br><br>
+<a href="/edit/{{ trip[0] }}">
+    <button>✏️ Edit</button>
+</a>
+<a href="/delete/{{ trip[0] }}"onclick="return confirm('Are you sure you want to delete this trip?');">
+    <button>🗑 Delete</button>
+</a>
+</p>
+
+<hr>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

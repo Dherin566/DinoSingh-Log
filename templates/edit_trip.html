@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Trip</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>✏️ Edit Trip</h1>
+</div>
+
+<div class="card">
+
+<form method="POST">
+
+<label>Pickup</label><br>
+<input type="text" name="pickup" value="{{ trip[1] }}"><br><br>
+
+<label>Drop</label><br>
+<input type="text" name="drop" value="{{ trip[2] }}"><br><br>
+
+<label>KM</label><br>
+<input type="number" name="km" value="{{ trip[3] }}"><br><br>
+
+<label>Fare</label><br>
+<input type="number" name="fare" value="{{ trip[4] }}"><br><br>
+
+<label>Fuel</label><br>
+<input type="number" name="fuel" value="{{ trip[5] }}"><br><br>
+
+<button>Update Trip</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
