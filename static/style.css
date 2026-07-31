@@ -133,3 +133,38 @@ p{
 .dark-mode a{
     color:#66b3ff;
 }
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    input,
+    select,
+    button,
+    textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+}
